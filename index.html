@@ -8,21 +8,28 @@
 <body>
 <x-dc>
 <helmet>
-  <link rel="stylesheet" href="_ds/joor-design-system-b22db909-8ad3-427d-b74c-b5530e1b2ed7/figma/fig-tokens.css">
-  <link rel="stylesheet" href="_ds/joor-design-system-b22db909-8ad3-427d-b74c-b5530e1b2ed7/_ds_bundle.css">
-  <link rel="stylesheet" href="_ds/joor-design-system-b22db909-8ad3-427d-b74c-b5530e1b2ed7/styles.css">
-  <script src="_ds/joor-design-system-b22db909-8ad3-427d-b74c-b5530e1b2ed7/_ds_bundle.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Antic+Didone&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
+    /* All colours are literal values — the page carries no external stylesheet
+       dependency, so it renders identically wherever it is deployed. */
+    .nc-btn { display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box;
+      font-family: Montserrat, sans-serif; font-size: 15px; font-weight: 400; letter-spacing: 0;
+      height: 47px; padding: 0 28px; border: 1px solid rgb(0,139,173); border-radius: 0;
+      background: rgb(0,139,173); color: #FFFFFF; text-decoration: none; cursor: pointer;
+      transition: background 160ms ease, border-color 160ms ease, color 160ms ease; }
+    .nc-btn:hover { background: rgb(23,157,181); border-color: rgb(23,157,181); color: #FFFFFF; text-decoration: none; }
+    .nc-btn-secondary { background: #FFFFFF; border-color: rgb(205,212,218); color: rgb(50,62,72); }
+    .nc-btn-secondary:hover { background: #FFFFFF; border-color: rgb(50,62,72); color: rgb(50,62,72); }
+    .nc-btn-on-dark { border-color: #FFFFFF; }
     @font-face { font-family: Canela; font-weight: 100; font-style: normal; font-display: swap;
       src: url('assets/CanelaDeck-Thin.woff') format('woff'), url('assets/CanelaDeck-Thin.otf') format('opentype'); }
     @font-face { font-family: Canela; font-weight: 300; font-style: normal; font-display: swap;
       src: url('assets/CanelaDeck-Light.woff') format('woff'), url('assets/CanelaDeck-Light.otf') format('opentype'); }
     body { font-synthesis-weight: none; -webkit-font-synthesis: none; margin: 0; background: #FFFFFF; -webkit-font-smoothing: antialiased; }
-    a { color: var(--color-secondary-800); text-decoration: none; }
-    a:hover { color: var(--color-secondary-700); text-decoration: underline; }
+    a { color: rgb(0,139,173); text-decoration: none; }
+    a:hover { color: rgb(23,157,181); text-decoration: underline; }
     .nc-rail { scrollbar-width: none; -ms-overflow-style: none; }
     .nc-rail::-webkit-scrollbar { display: none; }
     @keyframes nc-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
@@ -34,7 +41,7 @@
     .nc-split { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
     @container (max-width: 1120px) {
       .nc-results { grid-template-columns: minmax(0, 1fr); }
-      .nc-results > div:first-child { border-right: 0 !important; border-bottom: 1px solid var(--color-primary-100); }
+      .nc-results > div:first-child { border-right: 0 !important; border-bottom: 1px solid rgb(235,237,240); }
       .nc-metrics > div:nth-child(1), .nc-metrics > div:nth-child(2) { display: none !important; }
     }
     @media (max-width: 1150px) {
@@ -51,29 +58,25 @@
   </style>
 </helmet>
 
-<div style="width: 100%; background: #FFFFFF; font-family: Montserrat, sans-serif; color: var(--color-primary-800); --size-border-radius-small: 0px; --size-border-radius-medium: 10px; --size-border-radius-large: 20px;">
+<div style="width: 100%; background: #FFFFFF; font-family: Montserrat, sans-serif; color: rgb(50,62,72);">
 
-  <header data-screen-label="Header" style="background: #FFFFFF; border-bottom: 1px solid var(--color-primary-100);">
+  <header data-screen-label="Header" style="background: #FFFFFF; border-bottom: 1px solid rgb(235,237,240);">
     <div style="max-width: 1280px; margin: 0 auto; min-height: 57px; padding: 16px 40px; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;">
       <img src="assets/joor-logo.png" alt="JOOR" style="height: 55px; width: auto; display: block; flex: none;">
       <sc-if value="{{ showNav }}" hint-placeholder-val="{{ false }}">
-        <nav style="display: flex; align-items: center; flex-wrap: wrap; gap: 12px 24px; min-width: 0; font-size: 14px; color: var(--color-primary-800);">
-          <a href="#solutions" style="color: var(--color-primary-800);">Solutions</a>
-          <a href="#industries" style="color: var(--color-primary-800);">Industries</a>
+        <nav style="display: flex; align-items: center; flex-wrap: wrap; gap: 12px 24px; min-width: 0; font-size: 14px; color: rgb(50,62,72);">
+          <a href="#solutions" style="color: rgb(50,62,72);">Solutions</a>
+          <a href="#industries" style="color: rgb(50,62,72);">Industries</a>
         </nav>
       </sc-if>
       <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 10px 16px; min-width: 0;">
-        <div style="zoom: 1.47; --color-primary-800: var(--color-secondary-800); --color-primary-500: var(--color-secondary-700);">
-          <x-import component-from-global-scope="JoorDesignSystem.Button" hint-size="150px,32px">Request a Demo</x-import>
-        </div>
-        <div style="zoom: 1.47;">
-          <x-import component-from-global-scope="JoorDesignSystem.SecondaryButton" hint-size="170px,32px">Open a Buyer Account</x-import>
-        </div>
+        <a class="nc-btn" href="https://www.joor.com/demo-request">Request a Demo</a>
+        <a class="nc-btn nc-btn-secondary" href="https://www.jooraccess.com/retail_registration">Open a Buyer Account</a>
       </div>
     </div>
   </header>
 
-  <section data-screen-label="Hero" style="position: relative; background: var(--color-primary-900);">
+  <section data-screen-label="Hero" style="position: relative; background: rgb(45,52,57);">
     <img src="assets/hero-banner.webp" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: left center;">
     <div style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(26,30,34,0.72) 0%, rgba(26,30,34,0.45) 42%, rgba(26,30,34,0.12) 70%, rgba(26,30,34,0.05) 100%); pointer-events: none;"></div>
 
@@ -86,21 +89,21 @@
 
   <section data-screen-label="Calculator" id="calculator" style="background: #FFFFFF;">
     <div style="max-width: 1280px; margin: 0 auto; padding: 0 40px;">
-      <div style="margin-top: -192px; position: relative; background: #FFFFFF; border-radius: var(--size-border-radius-medium); box-shadow: 0 40px 90px rgba(45,52,57,0.22); overflow: hidden;">
+      <div style="margin-top: -192px; position: relative; background: #FFFFFF; border-radius: 10px; box-shadow: 0 40px 90px rgba(45,52,57,0.22); overflow: hidden;">
 
         <div style="padding: 44px 56px 36px;">
-          <div style="font-family: Canela, 'Antic Didone', Georgia, serif; font-weight: 300; font-size: 38px; line-height: 1.15; letter-spacing: -0.01em; color: var(--color-primary-800); margin-bottom: 26px;">Select a category</div>
+          <div style="font-family: Canela, 'Antic Didone', Georgia, serif; font-weight: 300; font-size: 38px; line-height: 1.15; letter-spacing: -0.01em; color: rgb(50,62,72); margin-bottom: 26px;">Select a category</div>
 
           <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
             <div style="display: flex; flex-wrap: wrap; gap: 10px;">
               <sc-for list="{{ categories }}" as="c" hint-placeholder-count="6">
-                <button type="button" onClick="{{ c.onSelect }}" style="font-family: Montserrat, sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; height: 44px; padding: 0 24px; border-radius: 0; border: 1px solid var(--color-primary-200); cursor: pointer; transition: background 160ms ease, border-color 160ms ease, color 160ms ease; background: {{ c.bg }}; color: {{ c.fg }}; border-color: {{ c.bd }};" style-hover="border-color: var(--color-primary-800);">{{ c.name }}</button>
+                <button type="button" onClick="{{ c.onSelect }}" style="font-family: Montserrat, sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; height: 44px; padding: 0 24px; border-radius: 0; border: 1px solid rgb(205,212,218); cursor: pointer; transition: background 160ms ease, border-color 160ms ease, color 160ms ease; background: {{ c.bg }}; color: {{ c.fg }}; border-color: {{ c.bd }};" style-hover="border-color: rgb(50,62,72);">{{ c.name }}</button>
               </sc-for>
             </div>
           </sc-if>
 
           <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
-            <div class="nc-rail" style="display: flex; gap: 0; overflow-x: auto; border-bottom: 1px solid var(--color-primary-200); margin: 0 -56px; padding: 0 56px;">
+            <div class="nc-rail" style="display: flex; gap: 0; overflow-x: auto; border-bottom: 1px solid rgb(205,212,218); margin: 0 -56px; padding: 0 56px;">
               <sc-for list="{{ categories }}" as="c" hint-placeholder-count="6">
                 <button type="button" onClick="{{ c.onSelect }}" style="flex: none; font-family: Montserrat, sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; height: 48px; padding: 0 18px; border: 0; background: transparent; cursor: pointer; transition: color 160ms ease, box-shadow 160ms ease; color: {{ c.tabFg }}; box-shadow: {{ c.tabRule }};">{{ c.name }}</button>
               </sc-for>
@@ -109,10 +112,10 @@
         </div>
 
         <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
-          <div style="container-type: inline-size; border-top: 1px solid var(--color-primary-100);">
+          <div style="container-type: inline-size; border-top: 1px solid rgb(235,237,240);">
             <div class="nc-results">
 
-            <div style="padding: 48px 56px; border-right: 1px solid var(--color-primary-100);">
+            <div style="padding: 48px 56px; border-right: 1px solid rgb(235,237,240);">
               <div style="font-size: 14px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: rgb(119,132,143); margin-bottom: 32px; text-align: center;">Where the buyers are</div>
 
               <div style="display: flex; justify-content: center; margin-bottom: 36px;">
@@ -133,32 +136,32 @@
                 <sc-for list="{{ segments }}" as="s" hint-placeholder-count="3">
                   <div style="display: flex; align-items: center; gap: 16px;">
                     <span style="width: 18px; height: 12px; flex: none; background: {{ s.color }};"></span>
-                    <span style="flex: 1; font-size: 16px; line-height: 1.45; color: var(--color-primary-700);">{{ s.fullName }}</span>
-                    <span style="font-family: Canela, 'Antic Didone', Georgia, serif; font-weight: 300; font-size: 30px; line-height: 1; color: var(--color-primary-800);">{{ s.pct }}</span>
+                    <span style="flex: 1; font-size: 16px; line-height: 1.45; color: rgb(64,81,93);">{{ s.fullName }}</span>
+                    <span style="font-family: Canela, 'Antic Didone', Georgia, serif; font-weight: 300; font-size: 30px; line-height: 1; color: rgb(50,62,72);">{{ s.pct }}</span>
                   </div>
                 </sc-for>
               </div>
-              <div style="margin-top: 26px; font-size: 15px; line-height: 1.6; color: var(--color-primary-500);">{{ regionDesc }}</div>
+              <div style="margin-top: 26px; font-size: 15px; line-height: 1.6; color: rgb(92,114,132);">{{ regionDesc }}</div>
             </div>
 
             <div class="nc-metrics" style="position: relative; padding: 48px 56px; column-gap: 48px; row-gap: 44px;">
-              <div style="position: absolute; left: 56px; right: 56px; top: 50%; height: 1px; background: var(--color-primary-100); pointer-events: none;"></div>
-              <div style="position: absolute; top: 48px; bottom: 48px; left: 50%; width: 1px; background: var(--color-primary-100); pointer-events: none;"></div>
+              <div style="position: absolute; left: 56px; right: 56px; top: 50%; height: 1px; background: rgb(235,237,240); pointer-events: none;"></div>
+              <div style="position: absolute; top: 48px; bottom: 48px; left: 50%; width: 1px; background: rgb(235,237,240); pointer-events: none;"></div>
               <sc-for list="{{ metrics }}" as="m" hint-placeholder-count="4">
                 <div style="position: relative; min-width: 0;">
                   <div style="display: flex; align-items: baseline; gap: 12px; min-height: 74px; transition: {{ valueTransition }}; opacity: {{ enterOpacity }}; transform: {{ enterShift }};">
                     <sc-if value="{{ m.isYoy }}" hint-placeholder-val="{{ false }}">
-                      <span style="font-size: 20px; line-height: 1; color: var(--color-secondary-800);">▲</span>
+                      <span style="font-size: 20px; line-height: 1; color: rgb(0,139,173);">▲</span>
                     </sc-if>
-                    <span style="font-family: Canela, 'Antic Didone', Georgia, serif; font-weight: 300; font-size: clamp(40px, 7cqw, 70px); line-height: 1; letter-spacing: -0.02em; color: var(--color-primary-800);">{{ m.value }}</span>
+                    <span style="font-family: Canela, 'Antic Didone', Georgia, serif; font-weight: 300; font-size: clamp(40px, 7cqw, 70px); line-height: 1; letter-spacing: -0.02em; color: rgb(50,62,72);">{{ m.value }}</span>
                   </div>
                   <sc-if value="{{ m.isRate }}" hint-placeholder-val="{{ false }}">
-                    <div style="height: 12px; background: var(--color-primary-100); margin: 18px 0 4px; max-width: 280px;">
-                      <div style="height: 100%; background: var(--color-secondary-800); transition: width 460ms ease; width: {{ m.pct }};"></div>
+                    <div style="height: 12px; background: rgb(235,237,240); margin: 18px 0 4px; max-width: 280px;">
+                      <div style="height: 100%; background: rgb(0,139,173); transition: width 460ms ease; width: {{ m.pct }};"></div>
                     </div>
                   </sc-if>
-                  <div style="margin-top: 16px; font-size: 18px; font-weight: 600; line-height: 1.5; color: var(--color-primary-700);">{{ m.label }}</div>
-                  <div style="margin-top: 10px; font-size: 15px; line-height: 1.6; color: var(--color-primary-500);">{{ m.desc }}</div>
+                  <div style="margin-top: 16px; font-size: 18px; font-weight: 600; line-height: 1.5; color: rgb(64,81,93);">{{ m.label }}</div>
+                  <div style="margin-top: 10px; font-size: 15px; line-height: 1.6; color: rgb(92,114,132);">{{ m.desc }}</div>
                 </div>
               </sc-for>
             </div>
@@ -167,7 +170,7 @@
         </sc-if>
 
         <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
-          <div style="border-top: 1px solid var(--color-primary-100); padding: 36px 0 28px;">
+          <div style="border-top: 1px solid rgb(235,237,240); padding: 36px 0 28px;">
             <div class="nc-rail" onScroll="{{ onRailScroll }}" style="display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 0;">
               <div style="flex: none; width: 100%; scroll-snap-align: center; padding: 0 28px; box-sizing: border-box;">
                 <div style="font-size: 14px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: rgb(119,132,143); margin-bottom: 24px; text-align: center;">Where the buyers are</div>
@@ -185,35 +188,35 @@
                   <sc-for list="{{ segments }}" as="s" hint-placeholder-count="3">
                     <div style="display: flex; align-items: center; gap: 14px;">
                       <span style="width: 18px; height: 12px; flex: none; background: {{ s.color }};"></span>
-                      <span style="flex: 1; font-size: 15px; line-height: 1.45; color: var(--color-primary-700);">{{ s.fullName }}</span>
-                      <span style="font-family: Canela, 'Antic Didone', Georgia, serif; font-weight: 300; font-size: 26px; line-height: 1; color: var(--color-primary-800);">{{ s.pct }}</span>
+                      <span style="flex: 1; font-size: 15px; line-height: 1.45; color: rgb(64,81,93);">{{ s.fullName }}</span>
+                      <span style="font-family: Canela, 'Antic Didone', Georgia, serif; font-weight: 300; font-size: 26px; line-height: 1; color: rgb(50,62,72);">{{ s.pct }}</span>
                     </div>
                   </sc-for>
                 </div>
-                <div style="margin-top: 20px; font-size: 15px; line-height: 1.6; color: var(--color-primary-500);">{{ regionDesc }}</div>
+                <div style="margin-top: 20px; font-size: 15px; line-height: 1.6; color: rgb(92,114,132);">{{ regionDesc }}</div>
               </div>
 
               <sc-for list="{{ metrics }}" as="m" hint-placeholder-count="4">
                 <div style="flex: none; width: 100%; scroll-snap-align: center; padding: 0 28px; box-sizing: border-box;">
                   <div style="display: flex; align-items: baseline; gap: 12px; min-height: 64px;">
                     <sc-if value="{{ m.isYoy }}" hint-placeholder-val="{{ false }}">
-                      <span style="font-size: 18px; line-height: 1; color: var(--color-secondary-800);">▲</span>
+                      <span style="font-size: 18px; line-height: 1; color: rgb(0,139,173);">▲</span>
                     </sc-if>
-                    <span style="font-family: Canela, 'Antic Didone', Georgia, serif; font-weight: 300; font-size: 58px; line-height: 1; letter-spacing: -0.02em; color: var(--color-primary-800);">{{ m.value }}</span>
+                    <span style="font-family: Canela, 'Antic Didone', Georgia, serif; font-weight: 300; font-size: 58px; line-height: 1; letter-spacing: -0.02em; color: rgb(50,62,72);">{{ m.value }}</span>
                   </div>
                   <sc-if value="{{ m.isRate }}" hint-placeholder-val="{{ false }}">
-                    <div style="height: 12px; background: var(--color-primary-100); margin: 16px 0 4px;">
-                      <div style="height: 100%; background: var(--color-secondary-800); transition: width 460ms ease; width: {{ m.pct }};"></div>
+                    <div style="height: 12px; background: rgb(235,237,240); margin: 16px 0 4px;">
+                      <div style="height: 100%; background: rgb(0,139,173); transition: width 460ms ease; width: {{ m.pct }};"></div>
                     </div>
                   </sc-if>
-                  <div style="margin-top: 14px; font-size: 17px; font-weight: 600; line-height: 1.5; color: var(--color-primary-700);">{{ m.label }}</div>
-                  <div style="margin-top: 10px; font-size: 15px; line-height: 1.6; color: var(--color-primary-500);">{{ m.desc }}</div>
+                  <div style="margin-top: 14px; font-size: 17px; font-weight: 600; line-height: 1.5; color: rgb(64,81,93);">{{ m.label }}</div>
+                  <div style="margin-top: 10px; font-size: 15px; line-height: 1.6; color: rgb(92,114,132);">{{ m.desc }}</div>
                 </div>
               </sc-for>
             </div>
 
             <div style="display: flex; align-items: center; justify-content: center; gap: 18px; margin-top: 28px;">
-              <button type="button" onClick="{{ onPrev }}" aria-label="Previous stat" style="flex: none; width: 34px; height: 34px; padding: 0; display: flex; align-items: center; justify-content: center; border: 1px solid var(--color-primary-200); background: #FFFFFF; cursor: pointer; opacity: {{ prevOpacity }};">
+              <button type="button" onClick="{{ onPrev }}" aria-label="Previous stat" style="flex: none; width: 34px; height: 34px; padding: 0; display: flex; align-items: center; justify-content: center; border: 1px solid rgb(205,212,218); background: #FFFFFF; cursor: pointer; opacity: {{ prevOpacity }};">
                 <svg width="9" height="15" viewBox="0 0 9 15" fill="none"><path d="M7.5 1L1.5 7.5l6 6.5" stroke="#323E48" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
               </button>
               <div style="display: flex; align-items: center; gap: 8px;">
@@ -221,18 +224,16 @@
                   <span style="width: 7px; height: 7px; border-radius: 50%; transition: background 200ms ease; background: {{ d.bg }};"></span>
                 </sc-for>
               </div>
-              <button type="button" onClick="{{ onNext }}" aria-label="Next stat" style="flex: none; width: 34px; height: 34px; padding: 0; display: flex; align-items: center; justify-content: center; border: 1px solid var(--color-primary-200); background: #FFFFFF; cursor: pointer; opacity: {{ nextOpacity }};">
+              <button type="button" onClick="{{ onNext }}" aria-label="Next stat" style="flex: none; width: 34px; height: 34px; padding: 0; display: flex; align-items: center; justify-content: center; border: 1px solid rgb(205,212,218); background: #FFFFFF; cursor: pointer; opacity: {{ nextOpacity }};">
                 <svg width="9" height="15" viewBox="0 0 9 15" fill="none"><path d="M1.5 1l6 6.5-6 6.5" stroke="#323E48" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
               </button>
             </div>
           </div>
         </sc-if>
 
-        <div style="background: var(--color-primary-800); padding: 34px 56px; display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap;">
+        <div style="background: rgb(50,62,72); padding: 34px 56px; display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap;">
           <div style="font-family: Canela, 'Antic Didone', Georgia, serif; font-weight: 300; font-size: 38px; line-height: 1.2; letter-spacing: -0.005em; color: #FFFFFF; max-width: 660px;">{{ band1Headline }}</div>
-          <div style="zoom: 1.45; --color-primary-800: var(--color-secondary-800); --color-primary-500: var(--color-secondary-700);">
-            <x-import component-from-global-scope="JoorDesignSystem.Button" hint-size="180px,32px">Talk to a Consultant</x-import>
-          </div>
+          <a class="nc-btn" href="#">Continue the Conversation</a>
         </div>
       </div>
     </div>
@@ -246,37 +247,37 @@
       <div style="display: flex; align-items: center; padding: 96px 40px;">
         <div style="max-width: 540px;">
           <div style="font-size: 14px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: rgb(119,132,143); margin-bottom: 26px;">The platform behind the numbers</div>
-          <h2 style="font-family: Canela, 'Antic Didone', Georgia, serif; font-weight: 300; font-size: 58px; line-height: 1.06; letter-spacing: -0.01em; margin: 0 0 40px; color: var(--color-primary-800); text-wrap: pretty;">One place to find buyers, write orders and see what sells.</h2>
+          <h2 style="font-family: Canela, 'Antic Didone', Georgia, serif; font-weight: 300; font-size: 58px; line-height: 1.06; letter-spacing: -0.01em; margin: 0 0 40px; color: rgb(50,62,72); text-wrap: pretty;">One place to find buyers, write orders and see what sells.</h2>
           <div style="display: flex; flex-direction: column; gap: 26px;">
-            <p style="margin: 0; font-size: 16px; line-height: 1.65; color: var(--color-primary-700);"><strong style="font-weight: 600;">Find new retailers with JOOR Discover:</strong> 700,000+ active buyers across 150 countries, from independent boutiques to global department stores.</p>
-            <p style="margin: 0; font-size: 16px; line-height: 1.65; color: var(--color-primary-700);"><strong style="font-weight: 600;">Manage orders in real time:</strong> from first sample request through to reorder, with visibility into where every order stands so nothing slips through the cracks between market and delivery.</p>
-            <p style="margin: 0; font-size: 16px; line-height: 1.65; color: var(--color-primary-700);"><strong style="font-weight: 600;">Connect to your stack:</strong> 100+ ERP, PLM, and POS integrations, including Shopify, NetSuite, and SAP, so orders placed on JOOR flow straight into the systems your team already runs on, without manual re-entry.</p>
-            <p style="margin: 0; font-size: 16px; line-height: 1.65; color: var(--color-primary-700);"><strong style="font-weight: 600;">See demand as it happens:</strong> sell-through, re-order, and regional data across your whole wholesale book, so you can see what's working while there's still time to act on it.</p>
+            <p style="margin: 0; font-size: 16px; line-height: 1.65; color: rgb(64,81,93);"><strong style="font-weight: 600;">Find new retailers with JOOR Discover:</strong> 700,000+ active buyers across 150 countries, from independent boutiques to global department stores.</p>
+            <p style="margin: 0; font-size: 16px; line-height: 1.65; color: rgb(64,81,93);"><strong style="font-weight: 600;">Manage orders in real time:</strong> from first sample request through to reorder, with visibility into where every order stands so nothing slips through the cracks between market and delivery.</p>
+            <p style="margin: 0; font-size: 16px; line-height: 1.65; color: rgb(64,81,93);"><strong style="font-weight: 600;">Connect to your stack:</strong> 100+ ERP, PLM, and POS integrations, including Shopify, NetSuite, and SAP, so orders placed on JOOR flow straight into the systems your team already runs on, without manual re-entry.</p>
+            <p style="margin: 0; font-size: 16px; line-height: 1.65; color: rgb(64,81,93);"><strong style="font-weight: 600;">See demand as it happens:</strong> sell-through, re-order, and regional data across your whole wholesale book, so you can see what's working while there's still time to act on it.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section data-screen-label="Network scale" id="network" style="background: var(--color-primary-100); padding: 120px 0;">
+  <section data-screen-label="Network scale" id="network" style="background: rgb(235,237,240); padding: 120px 0;">
     <div style="max-width: 1280px; margin: 0 auto; padding: 0 40px;">
-      <h2 style="font-family: Canela, 'Antic Didone', Georgia, serif; font-weight: 300; font-size: clamp(28px, 3.45vw, 44px); line-height: 1.15; margin: 0 auto 80px; color: var(--color-primary-800); max-width: 100%; text-align: center;">The industry’s largest curated B2B network</h2>
+      <h2 style="font-family: Canela, 'Antic Didone', Georgia, serif; font-weight: 300; font-size: clamp(28px, 3.45vw, 44px); line-height: 1.15; margin: 0 auto 80px; color: rgb(50,62,72); max-width: 100%; text-align: center;">The industry’s largest curated B2B network</h2>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 40px 32px; align-items: start;">
         <div style="">
-          <div style="font-family: Canela, 'Antic Didone', Georgia, serif; font-weight: 300; font-size: clamp(34px, 3.6vw, 66px); line-height: 1.05; letter-spacing: -0.01em; color: var(--color-primary-800); text-align: center;">700,000+</div>
-          <div style="margin-top: 16px; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-primary-700); text-align: center;">Retail buyers</div>
+          <div style="font-family: Canela, 'Antic Didone', Georgia, serif; font-weight: 300; font-size: clamp(34px, 3.6vw, 66px); line-height: 1.05; letter-spacing: -0.01em; color: rgb(50,62,72); text-align: center;">700,000+</div>
+          <div style="margin-top: 16px; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: rgb(64,81,93); text-align: center;">Retail buyers</div>
         </div>
         <div style="">
-          <div style="font-family: Canela, 'Antic Didone', Georgia, serif; font-weight: 300; font-size: clamp(34px, 3.6vw, 66px); line-height: 1.05; letter-spacing: -0.01em; color: var(--color-primary-800); text-align: center;">150</div>
-          <div style="margin-top: 16px; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-primary-700); text-align: center;">Countries reached</div>
+          <div style="font-family: Canela, 'Antic Didone', Georgia, serif; font-weight: 300; font-size: clamp(34px, 3.6vw, 66px); line-height: 1.05; letter-spacing: -0.01em; color: rgb(50,62,72); text-align: center;">150</div>
+          <div style="margin-top: 16px; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: rgb(64,81,93); text-align: center;">Countries reached</div>
         </div>
         <div style="">
-          <div style="font-family: Canela, 'Antic Didone', Georgia, serif; font-weight: 300; font-size: clamp(34px, 3.6vw, 66px); line-height: 1.05; letter-spacing: -0.01em; color: var(--color-primary-800); text-align: center;">135</div>
-          <div style="margin-top: 16px; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-primary-700); text-align: center;">Currencies supported</div>
+          <div style="font-family: Canela, 'Antic Didone', Georgia, serif; font-weight: 300; font-size: clamp(34px, 3.6vw, 66px); line-height: 1.05; letter-spacing: -0.01em; color: rgb(50,62,72); text-align: center;">135</div>
+          <div style="margin-top: 16px; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: rgb(64,81,93); text-align: center;">Currencies supported</div>
         </div>
         <div style="">
-          <div style="font-family: Canela, 'Antic Didone', Georgia, serif; font-weight: 300; font-size: clamp(34px, 3.6vw, 66px); line-height: 1.05; letter-spacing: -0.01em; color: var(--color-primary-800); text-align: center;">2.5M+</div>
-          <div style="margin-top: 16px; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-primary-700); text-align: center;">New connections made</div>
+          <div style="font-family: Canela, 'Antic Didone', Georgia, serif; font-weight: 300; font-size: clamp(34px, 3.6vw, 66px); line-height: 1.05; letter-spacing: -0.01em; color: rgb(50,62,72); text-align: center;">2.5M+</div>
+          <div style="margin-top: 16px; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: rgb(64,81,93); text-align: center;">New connections made</div>
         </div>
       </div>
 
@@ -312,21 +313,19 @@
     </div>
   </section>
 
-  <section data-screen-label="Closing CTA" style="position: relative; background: var(--color-primary-900); display: flex; align-items: center; min-height: 620px;">
+  <section data-screen-label="Closing CTA" style="position: relative; background: rgb(45,52,57); display: flex; align-items: center; min-height: 620px;">
     <img src="assets/cta-store.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center center;">
     <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(38,45,51,0.34) 0%, rgba(38,45,51,0.74) 42%, rgba(38,45,51,0.78) 62%, rgba(38,45,51,0.38) 100%); pointer-events: none;"></div>
     <div style="position: relative; max-width: 1280px; margin: 0 auto; padding: 72px 40px; width: 100%; display: flex; flex-direction: column; align-items: center; text-align: center;">
       <div style="max-width: 940px; width: 100%; display: flex; flex-direction: column; align-items: center;">
       <h2 style="font-family: Canela, 'Antic Didone', Georgia, serif; font-weight: 100; font-size: clamp(38px, 4.6vw, 60px); line-height: 1.06; letter-spacing: -0.015em; margin: 0 0 24px; color: #FFFFFF; max-width: 820px; text-wrap: pretty;">Get discovered by the retailers already buying wholesale.</h2>
       <p style="font-size: 24px; font-weight: 500; line-height: 1.4; color: #FFFFFF; margin: 0 0 40px; max-width: 700px;">Reach thousands of verified buyers actively sourcing wholesale. Built to get your brand seen, not buried.</p>
-      <div style="zoom: 1.5; --color-primary-800: var(--color-secondary-800); --color-primary-500: var(--color-secondary-700);">
-        <x-import component-from-global-scope="JoorDesignSystem.Button" hint-size="150px,32px">Request a Demo</x-import>
-      </div>
+      <a class="nc-btn" href="https://www.joor.com/demo-request">Request a Demo</a>
       </div>
     </div>
   </section>
 
-  <footer data-screen-label="Footer" style="background: var(--color-primary-800);">
+  <footer data-screen-label="Footer" style="background: rgb(50,62,72);">
     <div style="max-width: 1280px; margin: 0 auto; padding: 38px 40px; display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap;">
       <div style="display: flex; align-items: center; gap: 32px;">
         <img src="assets/joor-logo-white.png" alt="JOOR" style="height: 26px; width: auto; display: block;">
@@ -358,9 +357,9 @@ const DATA = [
 ];
 
 const REGIONS = [
-  { acronym: 'NA', full: 'US and Canada', color: 'var(--color-primary-800)', labelColor: '#FFFFFF' },
-  { acronym: 'EMEA', full: 'Europe, Middle East and Africa', color: 'var(--color-secondary-800)', labelColor: '#FFFFFF' },
-  { acronym: 'APAC', full: 'Asia Pacific, Australia and New Zealand', color: 'var(--color-primary-300)', labelColor: '#323E48' }
+  { acronym: 'NA', full: 'US and Canada', color: 'rgb(50,62,72)', labelColor: '#FFFFFF' },
+  { acronym: 'EMEA', full: 'Europe, Middle East and Africa', color: 'rgb(0,139,173)', labelColor: '#FFFFFF' },
+  { acronym: 'APAC', full: 'Asia Pacific, Australia and New Zealand', color: 'rgb(175,188,197)', labelColor: '#323E48' }
 ];
 const R = 88, CX = 100, CY = 100;
 
@@ -453,10 +452,10 @@ class Component extends DCLogic {
       const on = !empty && d.id === v.id;
       return {
         name: d.name,
-        bg: on ? 'var(--color-primary-800)' : '#FFFFFF',
-        fg: on ? '#FFFFFF' : 'var(--color-primary-700)',
-        bd: on ? 'var(--color-primary-800)' : 'var(--color-primary-200)',
-        tabFg: on ? 'var(--color-primary-800)' : 'var(--color-primary-500)',
+        bg: on ? 'rgb(50,62,72)' : '#FFFFFF',
+        fg: on ? '#FFFFFF' : 'rgb(64,81,93)',
+        bd: on ? 'rgb(50,62,72)' : 'rgb(205,212,218)',
+        tabFg: on ? 'rgb(50,62,72)' : 'rgb(92,114,132)',
         tabRule: on ? 'inset 0 -2px 0 0 #323E48' : 'none',
         onSelect: () => this.pick(d.id)
       };
@@ -475,7 +474,7 @@ class Component extends DCLogic {
       return {
         acronym: r.acronym,
         fullName: r.full,
-        color: empty ? 'var(--color-primary-100)' : r.color,
+        color: empty ? 'rgb(235,237,240)' : r.color,
         labelColor: empty ? '#AFBCC5' : '#323E48',
         labelAnchor: w.anchor,
         pct: empty ? '—' : pct + '%',
@@ -521,7 +520,7 @@ class Component extends DCLogic {
     ];
 
     const dots = [0, 1, 2, 3, 4].map((i) => ({
-      bg: i === this.state.tile ? 'var(--color-primary-800)' : 'var(--color-primary-300)'
+      bg: i === this.state.tile ? 'rgb(50,62,72)' : 'rgb(175,188,197)'
     }));
 
     return {
