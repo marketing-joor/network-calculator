@@ -57,7 +57,7 @@
     @media (max-width: 860px) {
       .nc-calc-wrap { padding: 0 12px !important; }
       .nc-calc-head { padding: 28px 20px 0 !important; }
-      .nc-calc-title { font-size: 36px !important; margin-bottom: 18px !important; white-space: nowrap; }
+      .nc-calc-title { font-size: 36px !important; margin-bottom: 18px !important; white-space: nowrap; text-align: center; }
       .nc-tabs { margin: 0 -20px !important; padding: 0 20px !important; }
       .nc-calc-cta { padding: 28px 20px !important; gap: 20px !important; }
       .nc-calc-cta-text { font-size: 34px !important; }
@@ -132,10 +132,16 @@
           </sc-if>
 
           <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
-            <div class="nc-rail nc-tabs" style="display: flex; gap: 0; overflow-x: auto; border-bottom: 1px solid rgb(205,212,218); margin: 0 -56px; padding: 0 56px;">
+            <div style="position: relative;">
+            <div class="nc-rail nc-tabs" onScroll="{{ onTabsScroll }}" style="display: flex; gap: 0; overflow-x: auto; border-bottom: 1px solid rgb(205,212,218); margin: 0 -56px; padding: 0 56px;">
               <sc-for list="{{ categories }}" as="c" hint-placeholder-count="6">
                 <button type="button" onClick="{{ c.onSelect }}" style="flex: none; font-family: Montserrat, sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; height: 48px; padding: 0 18px; border: 0; background: transparent; cursor: pointer; transition: color 160ms ease, box-shadow 160ms ease; color: {{ c.tabFg }}; box-shadow: {{ c.tabRule }};">{{ c.name }}</button>
               </sc-for>
+              <span style="flex: none; width: 36px;"></span>
+            </div>
+            <div aria-hidden="true" style="position: absolute; top: 0; right: -20px; height: 48px; width: 72px; pointer-events: none; display: flex; align-items: center; justify-content: flex-end; padding-right: 12px; box-sizing: border-box; background: linear-gradient(90deg, rgba(255,255,255,0) 0%, #FFFFFF 62%); transition: opacity 200ms ease; opacity: {{ tabsFade }};">
+              <svg width="7" height="12" viewBox="0 0 9 15" fill="none"><path d="M1.5 1l6 6.5-6 6.5" stroke="#323E48" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </div>
             </div>
           </sc-if>
         </div>
@@ -204,7 +210,7 @@
             <div class="nc-rail" onScroll="{{ onRailScroll }}" style="display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 0;">
               <div style="flex: none; width: 100%; scroll-snap-align: center; padding: 0 44px; box-sizing: border-box;">
                 <div style="font-size: 13px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: rgb(119,132,143); margin-bottom: 20px; text-align: center;">Where the buyers are</div>
-                <div style="display: flex; height: 14px; gap: 2px; margin-bottom: 24px; transition: {{ chartTransition }}; opacity: {{ chartOpacity }};">
+                <div style="display: flex; height: 14px; gap: 2px; margin-bottom: 36px; transition: {{ chartTransition }}; opacity: {{ chartOpacity }};">
                   <sc-for list="{{ segments }}" as="s" hint-placeholder-count="3">
                     <span style="display: block; height: 100%; transition: flex-basis 460ms ease; flex: 0 0 {{ s.barWidth }}; background: {{ s.color }};"></span>
                   </sc-for>
@@ -357,7 +363,7 @@
       </div>
       <div style="display: flex; align-items: center; gap: 26px; font-size: 12px; color: rgba(255,255,255,0.45);">
         <span>© 2026 JOOR. All rights reserved.</span>
-        <a href="#privacy" style="color: rgba(255,255,255,0.7);">Privacy</a>
+        <a href="https://www.joor.com/privacy-policy" style="color: rgba(255,255,255,0.7);">Privacy</a>
       </div>
     </div>
   </footer>
@@ -557,6 +563,12 @@ class Component extends DCLogic {
       bar2: this.state.menu ? 0 : 1,
       bar3: this.state.menu ? 'translateY(-7.5px) rotate(-45deg)' : 'none',
       onRailScroll: (e) => this.railScroll(e),
+      onTabsScroll: (e) => {
+        const el = e.currentTarget;
+        const end = el.scrollLeft + el.clientWidth >= el.scrollWidth - 8;
+        if (end !== !!this.state.tabsEnd) this.setState({ tabsEnd: end });
+      },
+      tabsFade: this.state.tabsEnd ? 0 : 1,
       onPrev: (e) => this.step(e, -1),
       onNext: (e) => this.step(e, 1),
       prevOpacity: this.state.tile <= 0 ? 0.35 : 1,
